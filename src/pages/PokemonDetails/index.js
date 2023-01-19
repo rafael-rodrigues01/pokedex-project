@@ -14,6 +14,10 @@ export const PokemonDetail = () => {
     // abilities: [],
   });
 
+  const [pokemonAbility, setPokemonAbility] = useState({
+    name: "",
+    description: "",
+  });
 
   const { id } = useParams();
 
@@ -28,12 +32,52 @@ export const PokemonDetail = () => {
         types: responsePokemonData.types,
         abilities: responsePokemonData.abilities,
       });
-     
     };
+
     fetchData();
   }, []);
 
-  
+  const { abilities } = pokemonInfo;
+
+  const getPokemonSkillDescription = async (abilities) => {
+    const abilityUrls = abilities.map((ability) => ability.ability.url);
+    let skillDescription = abilityUrls.map(async (url) => {
+      return await getPokemonData(url);
+    });
+
+    skillDescription = await Promise.all(skillDescription);
+    console.log(skillDescription);
+    setPokemonAbility({
+      name: skillDescription.map((name) => name.name),
+    });
+  };
+
+  console.log(pokemonAbility);
+
+  useEffect(() => {
+    getPokemonSkillDescription(abilities);
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const abilityName = pokemonInfo.abilities.map(
+  //       (ability) => ability.ability.name
+  //     );
+  //     const urls = pokemonInfo.abilities.map((ability) => ability.ability.url);
+
+  //     const getPokemonAbilityDescription = urls.map(
+  //       async (url) => await getPokemonData(url)
+  //     );
+  //     const skillDescription = await Promise.all(getPokemonAbilityDescription);
+  //     console.log(skillDescription);
+  //     setPokemonAbility({
+  //       name: abilityName,
+  //       description: skillDescription.effect_entries,
+  //     });
+  //   };
+  //   fetchData();
+  // }, []);
+
   return (
     <Main>
       <Card>
@@ -43,25 +87,31 @@ export const PokemonDetail = () => {
             <span>moves</span>
           </P>
 
-          <DivImage src={pokemonInfo.image} />
-          <ul>
-          {
-            pokemonInfo.moves.map(move => {
-              console.log(move);
-              return (
-                <li>{move.move.name}</li>
-              )
-            })
-          }
+          <DivImage>
+            <img src={pokemonInfo.image} />
+          </DivImage>
+          <div>
+            <h4>Moves</h4>
+            <h4>Abilities</h4>
+          </div>
+          <section>
+            {Object.keys(pokemonInfo).length > 0 && (
+              <ul>
+                {pokemonInfo.moves.map((move, index) => {
+                  return <li key={index}>{move.move.name}</li>;
+                })}
+              </ul>
+            )}
 
-          </ul>
+            {/* {Object.keys(pokemonAbility).length > 0 && (
+              <ul>
+                {pokemonAbility.name.map((ability, index) => {
+                  console.log(ability);
+                })}
+              </ul>
+            )} */}
+          </section>
         </SubCard>
-        {/* <img src={pokemonInfo.image} />
-        <ul>
-          {pokemonInfo.moves.map((move) => {
-            return <li>{move.move.name}</li>;
-          })}
-        </ul> */}
       </Card>
     </Main>
   );

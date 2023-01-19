@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import backgroundImage from "../../images/larger-background-image.png";
+import pokedexFrame from "../../images/animate-background.webp"
 
 export const Main = styled.main`
   height: 100vh;
-  background-color: #994;
+  background:url(${pokedexFrame}) no-repeat center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,11 +12,17 @@ export const Main = styled.main`
 
 export const Card = styled.div`
   background-color: #405056;
-  width: 70%;
-  height: 80%;
+  width: 20em;
+  height: 30em;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  section{
+    border: 2px solid #f4d534;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
 `;
 
 export const SubCard = styled.div`
@@ -24,6 +31,11 @@ export const SubCard = styled.div`
   background-color: #940530;
   display: flex;
   flex-direction: column;
+
+  div{
+    display: flex;
+    justify-content: space-around;
+  }
 `;
 
 export const P = styled.p`
@@ -43,7 +55,8 @@ export const P = styled.p`
 `;
 
 export const DivImage = styled.div`
-  background: url(${backgroundImage}) no-repeat;
+  background: url(${backgroundImage}) no-repeat center;
   height: 100vh;
-  margin-left: 152px;
 `;
+
+
