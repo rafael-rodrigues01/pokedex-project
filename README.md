@@ -32,7 +32,7 @@ Final project of my studies in React.Js where I created a pokedex that in additi
 ## Overview
 
 <video controls autoplay="true" loop>
-<source src="https://user-images.githubusercontent.com/106329803/216973660-ef8dd85f-2992-4137-834c-4f084b90c438.mp4" type="video/mp4">
+<source src="./src/images/overview.mp4" type="video/mp4">
 </video>
 
 
@@ -51,6 +51,7 @@ Mobile screen overview:
 
 - HTML
 - CSS
+- JavaScript
 - React.Js
 - Styled-Components
 
