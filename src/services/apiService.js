@@ -1,7 +1,10 @@
 const getPokemonApi = async () => {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?&limit=10");
-  const json = await response.json();
-  return json;
+  try {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?&limit=10");
+    return await response.json();
+  } catch (error) {
+    alert(error);
+  }
 };
 
 const getPokemonData = async (url) => {
@@ -10,8 +13,8 @@ const getPokemonData = async (url) => {
 };
 
 const getPokemonDataId = async (id) => {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   return await response.json();
-}
+};
 
 export { getPokemonApi, getPokemonData, getPokemonDataId };

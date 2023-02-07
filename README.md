@@ -1,4 +1,18 @@
-# Getting Started with Create React App
+<h1>Pokedex</h1>
+
+## Index
+
+- [Getting Started](#getting-started-with-create-react-app)
+- [Description](#description)
+- [Overview](#overview)
+- [Responsive layout](#responsive-layout)
+- [Tecnologias used](#technologies-used)
+- [Acquired knowledge](#acquired-knowledge)
+- [What challenged me the most](#what-challenged-me-the-most)
+- [Contact](#contact)
+- [Thanks](#thanks)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,60 +25,47 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Description
 
-### `npm test`
+Final project of my studies in React.Js where I created a pokedex that in addition to the pokemon image, some of its data comes from an api called [pokeapi](https://pokeapi.co/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `npm run build`
+<video controls autoplay="true" loop>
+<source src="https://user-images.githubusercontent.com/106329803/216973660-ef8dd85f-2992-4137-834c-4f084b90c438.mp4" type="video/mp4">
+</video>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Responsive layout
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Mobile screen overview:
 
-### `npm run eject`
+![localhost-screenshot](https://user-images.githubusercontent.com/106329803/217236571-1c2051ad-3595-4187-a50a-7208135d75cc.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![localhost-screenshot (1)](https://user-images.githubusercontent.com/106329803/217236432-66b5d58d-414e-4225-b952-47ac4d3b0f7e.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Technologies used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- HTML
+- CSS
+- React.Js
+- Styled-Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acquired knowledge
 
-### Code Splitting
+I learned how to work better with states in react, how to create spa pages using react-router-dom, how to work with the map and I also learned how to use the css grid to make my project more responsive without putting so many media queries
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## What challenged me the most?
 
-### Analyzing the Bundle Size
+My biggest challenge was in controlling the flow of the code, I had a lot of difficulties with the use of the map and how to best show the components to the user. I also had difficulties in creating the design of the application but thank God I managed to develop something pleasant in my view
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact
 
-### Making a Progressive Web App
+- LinkedIn - [Rafael Rodrigues](https://github.com/rafael-rodrigues01)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Thanks
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Firstly, I would like to thank God, the Virgin Mary, my guardian angel and all the saints and angels of God, who are with me on this mission of becoming a front-end developer, and I also thank the entire Dev team twice as much for their support and the discord community that made a big difference in my early career as a front-end developer.

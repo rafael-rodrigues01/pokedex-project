@@ -1,33 +1,47 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+
+import arrowImage from "../../images/arrow-image.png";
+
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+
+import Switch from "react-switch";
+
+import { themes, ThemeContext } from "../../contexts/theme-context";
+
 import { getPokemonDataId, getPokemonData } from "../../services/apiService";
 
-import { Main, Card, SubCard, DivImage, P } from "./styled";
+import { Main, Card, SubCard, DivImage, P, Header } from "./styled";
 
 export const PokemonDetail = () => {
-  const [pokemonInfo, setPokemonInfo] = useState({
-    // name: "",
-    // image: "",
-    // moves: [],
-    // types: [],
-    // abilities: [],
-  });
+  const [pokemonInfo, setPokemonInfo] = useState({});
 
-  const [pokemonAbility, setPokemonAbility] = useState({
-    name: "",
-    description: "",
-  });
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const [pokemonAbility, setPokemonAbility] = useState([]);
 
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       const responsePokemonData = await getPokemonDataId(id);
+      const abilityUrls = responsePokemonData.abilities.map(
+        (ability) => ability.ability.url
+      );
+
+      let skillDescription = abilityUrls.map(async (url) => {
+        return await getPokemonData(url);
+      });
+
+      skillDescription = await Promise.all(skillDescription);
+      setPokemonAbility(skillDescription);
 
       setPokemonInfo({
         name: responsePokemonData.name,
-        image: responsePokemonData.sprites.front_default,
+        image:
+          responsePokemonData["sprites"]["versions"]["generation-v"][
+            "black-white"
+          ]["animated"]["front_default"],
         moves: responsePokemonData.moves.slice(0, 10),
         types: responsePokemonData.types,
         abilities: responsePokemonData.abilities,
@@ -37,54 +51,41 @@ export const PokemonDetail = () => {
     fetchData();
   }, []);
 
-  const { abilities } = pokemonInfo;
-
-  const getPokemonSkillDescription = async (abilities) => {
-    const abilityUrls = abilities.map((ability) => ability.ability.url);
-    let skillDescription = abilityUrls.map(async (url) => {
-      return await getPokemonData(url);
-    });
-
-    skillDescription = await Promise.all(skillDescription);
-    console.log(skillDescription);
-    setPokemonAbility({
-      name: skillDescription.map((name) => name.name),
-    });
-  };
-
-  console.log(pokemonAbility);
-
-  useEffect(() => {
-    getPokemonSkillDescription(abilities);
-  }, []);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const abilityName = pokemonInfo.abilities.map(
-  //       (ability) => ability.ability.name
-  //     );
-  //     const urls = pokemonInfo.abilities.map((ability) => ability.ability.url);
-
-  //     const getPokemonAbilityDescription = urls.map(
-  //       async (url) => await getPokemonData(url)
-  //     );
-  //     const skillDescription = await Promise.all(getPokemonAbilityDescription);
-  //     console.log(skillDescription);
-  //     setPokemonAbility({
-  //       name: abilityName,
-  //       description: skillDescription.effect_entries,
-  //     });
-  //   };
-  //   fetchData();
-  // }, []);
+  console.table(pokemonInfo);
 
   return (
-    <Main>
+    <Main theme={theme}>
       <Card>
+        <Header>
+          <Link to="/">
+            <img src={arrowImage} width="35"></img>
+          </Link>
+
+          <Switch
+            onChange={() =>
+              setTheme(theme === themes.light ? themes.dark : themes.light)
+            }
+            checked={theme === themes.dark}
+            onColor={"#4949a2"}
+            uncheckedIcon={false}
+            checkedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+          />
+        </Header>
         <SubCard>
           <P>
-            {pokemonInfo.name}
-            <span>moves</span>
+            <p>{pokemonInfo.name}</p>
+            {Object.keys(pokemonInfo).length > 0 && (
+              <ul>
+                {pokemonInfo.types.map((type, index) => (
+                  <li style={{ paddingLeft: "5px", textTransform: 'capitalize' }} key={index}>
+                    {type.type.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </P>
 
           <DivImage>
@@ -97,19 +98,26 @@ export const PokemonDetail = () => {
           <section>
             {Object.keys(pokemonInfo).length > 0 && (
               <ul>
-                {pokemonInfo.moves.map((move, index) => {
-                  return <li key={index}>{move.move.name}</li>;
-                })}
+                {pokemonInfo.moves.map((move, index) => (
+                  <li key={index}>{move.move.name}</li>
+                ))}
               </ul>
             )}
 
-            {/* {Object.keys(pokemonAbility).length > 0 && (
-              <ul>
-                {pokemonAbility.name.map((ability, index) => {
-                  console.log(ability);
-                })}
+            {Object.keys(pokemonAbility).length > 0 && (
+              <ul className="ability">
+                {pokemonAbility.map((ability, index) => (
+                  <li key={index}>
+                    <b style={{ textTransform: "capitalize" }}>
+                      {ability.name}
+                    </b>
+                    <p style={{ marginBottom: "6px" }}>
+                      {ability.effect_entries[0].effect}
+                    </p>
+                  </li>
+                ))}
               </ul>
-            )} */}
+            )}
           </section>
         </SubCard>
       </Card>

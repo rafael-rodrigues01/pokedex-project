@@ -1,17 +1,41 @@
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
+
 import { AppRoutes } from "../../pages/routes";
+import { ThemeProvider } from "../../contexts/theme-context";
+import { useContext } from "react";
+import { ThemeContext } from "../../contexts/theme-context";
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="App">
-      <GlobalStyle />
-      <AppRoutes />
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <GlobalStyle />
+        <AppRoutes />
+      </div>
+    </ThemeProvider>
   );
 }
 
 const GlobalStyle = createGlobalStyle`
+
+
+  *::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #070d12;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 3px solid #070d12;
+}
+
   *{
     margin: 0;
     padding: 0;
