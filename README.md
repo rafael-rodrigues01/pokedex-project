@@ -30,11 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Final project of my studies in React.Js where I created a pokedex that in addition to the pokemon image, some of its data comes from an api called [pokeapi](https://pokeapi.co/)
 
 ## Overview
-
-<video controls autoplay="true" loop>
-<source src="src/images/overview.mp4" type="video/mp4">
-</video>
-
+![gif-quest-javascript-avancado-responsivo](https://user-images.githubusercontent.com/106329803/217246634-7122dbbb-957e-4489-9565-d10e6061be04.gif)
 
 ## Responsive layout
 
