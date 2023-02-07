@@ -32,7 +32,7 @@ Final project of my studies in React.Js where I created a pokedex that in additi
 ## Overview
 
 <video controls autoplay="true" loop>
-<source src="./src/images/overview.mp4" type="video/mp4">
+<source src="src/images/overview.mp4" type="video/mp4">
 </video>
 
 
