@@ -72,7 +72,7 @@ export const SubCard = styled.div`
   }
 `;
 
-export const P = styled.p`
+export const Div = styled.div`
   color: #000000;
   font-size: 24px;
   font-family: "VT323", sans-serif;

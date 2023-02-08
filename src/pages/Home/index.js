@@ -36,6 +36,8 @@ const Home = () => {
     fetchData();
   }, []);
 
+  
+
   const loadMore10Pokemons = async (next10PokemonsUrls, pokemons) => {
     const response = await getPokemonData(next10PokemonsUrls);
     const pokemonsResults = response.results;

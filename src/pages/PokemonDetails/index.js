@@ -11,7 +11,7 @@ import { themes, ThemeContext } from "../../contexts/theme-context";
 
 import { getPokemonDataId, getPokemonData } from "../../services/apiService";
 
-import { Main, Card, SubCard, DivImage, P, Header } from "./styled";
+import { Main, Card, SubCard, DivImage, Div, Header } from "./styled";
 
 export const PokemonDetail = () => {
   const [pokemonInfo, setPokemonInfo] = useState({});
@@ -51,8 +51,6 @@ export const PokemonDetail = () => {
     fetchData();
   }, []);
 
-  console.table(pokemonInfo);
-
   return (
     <Main theme={theme}>
       <Card>
@@ -75,7 +73,7 @@ export const PokemonDetail = () => {
           />
         </Header>
         <SubCard>
-          <P>
+          <Div>
             <p>{pokemonInfo.name}</p>
             {Object.keys(pokemonInfo).length > 0 && (
               <ul>
@@ -86,7 +84,7 @@ export const PokemonDetail = () => {
                 ))}
               </ul>
             )}
-          </P>
+          </Div>
 
           <DivImage>
             <img src={pokemonInfo.image} />
