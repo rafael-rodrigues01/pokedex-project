@@ -5,7 +5,7 @@ import { Img, DivBackground, Div, DivApp, Header } from "./style";
 
 import { getPokemonApi, getPokemonData } from "../../services/apiService";
 import { PokemonCard } from "../../components/Pokemon-card";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/LoadMoreButton";
 
 import { ThemeContext, themes } from "../../contexts/theme-context";
 
@@ -39,6 +39,7 @@ const Home = () => {
   
 
   const loadMore10Pokemons = async (next10PokemonsUrls, pokemons) => {
+    console.log(next10PokemonsUrls);
     const response = await getPokemonData(next10PokemonsUrls);
     const pokemonsResults = response.results;
     const pokemonsUrls = pokemonsResults.map((result) => result.url);

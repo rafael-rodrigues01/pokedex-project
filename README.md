@@ -7,6 +7,7 @@
 - [Overview](#overview)
 - [Responsive layout](#responsive-layout)
 - [Tecnologias used](#technologies-used)
+- [My process](#my-process)
 - [Acquired knowledge](#acquired-knowledge)
 - [What challenged me the most](#what-challenged-me-the-most)
 - [Contact](#contact)
@@ -48,8 +49,14 @@ Mobile screen overview:
 - HTML
 - CSS
 - JavaScript
-- React.Js
-- Styled-Components
+- React - [ JS Frontend framework for creating reactive web applications ]
+- Context-API - [ React tool for sharing information between components ]
+- React-Router-DOM - [ React library for creating and manipulating routes in SPAs ]
+- Styled-Components - [ CSS Framework for styling web applications ]
+
+## My process
+As the first part of the challenge I thought about how to create a design to show the pokemon data in an attractive and easy to understand way, so I went to figma and there I developed the project design.
+after having the design ready, I did an analysis of how to transform it into code using React as the main tool and some frameworks. Throughout the process, I found myself stuck several times, but I unlocked it with the help of God and the double dev community, which was fundamental for me to develop this challenge.
 
 ## Acquired knowledge
 
